@@ -32,6 +32,6 @@ ostream& operator<<(ostream &output, LargeInt &li) {
 }
 
 void LargeInt::insert(int x) {
-  data[length+1] = x;
+  data[length] = x;
   length++;
 }
