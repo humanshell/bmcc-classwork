@@ -13,19 +13,20 @@ LargeInt::LargeInt() {
 // overload cin
 istream& operator>>(istream &input, LargeInt &li) {
 
+  int i, j;
   char li_char[40];
   input >> li_char;
   li.length = strlen(li_char);
 
-  for (int i = 0; i < li.length; ++i)
-    li.data[i] = (int) li_char[i] - 48;
+  for (i = li.length - 1, j = 0; i >= 0; --i, ++j)
+    li.data[j] = (int) li_char[i] - 48;
 
   return input;
 }
 
 // overload cout
 ostream& operator<<(ostream &output, LargeInt &li) {
-  for (int i = 0; i < li.length; ++i)
+  for (int i = li.length - 1; i >= 0 ; --i)
     output << li.data[i];
 
   return output;
