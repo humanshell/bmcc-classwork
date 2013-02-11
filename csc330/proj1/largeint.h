@@ -11,5 +11,6 @@ class LargeInt {
     LargeInt();
     void insert(int);
     bool operator==(LargeInt&);
+    LargeInt operator+(LargeInt&);
 };
 #endif
