@@ -10,6 +10,7 @@ LargeInt::LargeInt() {
   length = 0;
 }
 
+// overload cin
 istream& operator>>(istream &input, LargeInt &li) {
 
   char li_char[40];
@@ -23,6 +24,7 @@ istream& operator>>(istream &input, LargeInt &li) {
   return input;
 }
 
+// overload cout
 ostream& operator<<(ostream &output, LargeInt &li) {
   for (int i = 0; i < 40; ++i) {
     output << li.data[i];
@@ -31,7 +33,18 @@ ostream& operator<<(ostream &output, LargeInt &li) {
   return output;
 }
 
+// insert a single digit
 void LargeInt::insert(int x) {
   data[length] = x;
   length++;
+}
+
+// overload equality
+bool LargeInt::operator==(LargeInt &li2) {
+  for (int i = 0; i < length; ++i) {
+    if (data[i] != li2.data[i]) {
+      return false;
+    }
+    return true;
+  }
 }

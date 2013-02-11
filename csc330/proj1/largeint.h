@@ -10,5 +10,6 @@ class LargeInt {
   public:
     LargeInt();
     void insert(int);
+    bool operator==(LargeInt&);
 };
 #endif

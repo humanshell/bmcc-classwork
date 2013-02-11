@@ -20,6 +20,13 @@ int main() {
   cout << endl << "Here is your second LargeInt:" << endl;
   cout << li2 << endl;
 
+  // tell user if li1 and li2 are equal
+  if (li1 == li2) {
+    cout << endl << "Your LargeInts are equal." << endl ;
+  } else {
+    cout << endl << "Your LargeInts are not equal." << endl ;
+  }
+
   // ask user to insert a new digit into li1
   cout << endl << "Enter a single digit you'd like inserted into your first LargeInt: ";
   cin >> temp_int;
