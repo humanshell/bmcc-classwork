@@ -13,7 +13,7 @@ int main() {
   cout << li1 << endl;
 
   // ask user for large integer for li2
-  cout << "Enter an integer up to 40 digits for your second LargeInt: ";
+  cout << endl << "Enter an integer up to 40 digits for your second LargeInt: ";
   cin >> li2;
 
   // print out li2
@@ -33,7 +33,7 @@ int main() {
   li1.insert(temp_int);
 
   // print out updated li1
-  cout << endl << endl << "Here is your updated first LargeInt:" << endl;
+  cout << endl << "Here is your updated first LargeInt:" << endl;
   cout << li1 << endl;
 
   // ask user to insert a new digit into li2
@@ -42,7 +42,7 @@ int main() {
   li2.insert(temp_int);
 
   // print out updated li2
-  cout << endl << endl << "Here is your updated second LargeInt:" << endl;
+  cout << endl << "Here is your updated second LargeInt:" << endl;
   cout << li2 << endl;
 
   cout << endl;
