@@ -4,7 +4,7 @@ class LargeInt {
   friend std::istream& operator>>(std::istream&, LargeInt&);
   friend std::ostream& operator<<(std::ostream&, LargeInt&);
   
-  int data[40];
+  int data[41];
   int length;
 
   public:
