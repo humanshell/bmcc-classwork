@@ -80,7 +80,7 @@ void LargeInt::insert(int i) {
  * the internal data array. If it finds a number that doesn't match,
  * it immediately returns false. If all numbers match it returns true.
  */
-bool LargeInt::operator==(LargeInt &li2) {
+bool LargeInt::operator==(const LargeInt &li2) {
   int count;
   (length > li2.length) ? count = length : count = li2.length;
 
@@ -104,7 +104,7 @@ bool LargeInt::operator==(LargeInt &li2) {
  * incremented. The result of each addition operation is inserted into
  * the data array of the LargeInt that will be returned when done.
  */
-LargeInt LargeInt::operator+(LargeInt &li2) {
+LargeInt LargeInt::operator+(const LargeInt &li2) {
   LargeInt sum;
   bool carry = false;
   int count, temp_sum;

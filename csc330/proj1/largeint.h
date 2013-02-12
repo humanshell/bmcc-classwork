@@ -10,7 +10,7 @@ class LargeInt {
   public:
     LargeInt();
     void insert(int);
-    bool operator==(LargeInt&);
-    LargeInt operator+(LargeInt&);
+    bool operator==(const LargeInt&);
+    LargeInt operator+(const LargeInt&);
 };
 #endif
