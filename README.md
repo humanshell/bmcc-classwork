@@ -1,0 +1,1 @@
+This repo stores all the programs I've written while working towards my AAS in Computer Science from [BMCC](http://www.bmcc.cuny.edu/j2ee/index.jsp).
