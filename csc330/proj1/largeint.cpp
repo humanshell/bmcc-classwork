@@ -10,7 +10,7 @@ using namespace std;
  * It also initializes the length member variable to 0.
  */
 LargeInt::LargeInt() {
-  for (int i = 0; i < 40; ++i)
+  for (int i = 0; i < 41; ++i)
     data[i] = 0;
 
   length = 0;
