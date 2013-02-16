@@ -84,10 +84,9 @@ bool LargeInt::operator==(const LargeInt &li2) {
   int count;
   (length > li2.length) ? count = length : count = li2.length;
 
-  for (int i = 0; i < count; ++i) {
+  for (int i = 0; i < count; ++i)
     if (data[i] != li2.data[i])
       return false;
-  }
 
   return true;
 }
@@ -100,7 +99,7 @@ bool LargeInt::operator==(const LargeInt &li2) {
  * first determines which LargeInt is longer and sets the loop counter
  * to that value. It then uses a for loop to add each number from two
  * LargeInt data arrays. It uses a bool value to determine if the
- * addition resulted in a carry. If it did, the temp sum variable is
+ * addition resulted in a carry. If it did, the temp_sum variable is
  * incremented. The result of each addition operation is inserted into
  * the data array of the LargeInt that will be returned when done.
  */
@@ -112,7 +111,6 @@ LargeInt LargeInt::operator+(const LargeInt &li2) {
   (length > li2.length) ? count = length : count = li2.length;
 
   for (int i = 0; i < count; ++i) {
-
     temp_sum = data[i] + li2.data[i];
     
     if (carry) temp_sum++;
@@ -124,8 +122,8 @@ LargeInt LargeInt::operator+(const LargeInt &li2) {
       carry = false;
       sum.insert(temp_sum);
     }
-
   }
 
   return sum;
 }
+
