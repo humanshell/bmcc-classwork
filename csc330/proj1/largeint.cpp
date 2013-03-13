@@ -36,8 +36,7 @@ ostream& operator<<(ostream &output, LargeInt &li) {
 }
 
 void LargeInt::insert(int i) {
-  data[length] = i;
-  length++;
+  data[length++] = i;
 }
 
 bool LargeInt::operator==(const LargeInt &li2) {
