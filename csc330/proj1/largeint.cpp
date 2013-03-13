@@ -3,10 +3,17 @@
 using namespace std;
 
 LargeInt::LargeInt() {
+  data = new int[41];
+
   for (int i = 0; i < 41; ++i)
     data[i] = 0;
 
   length = 0;
+}
+
+LargeInt::~LargeInt() {
+  data = NULL;
+  delete [] data;
 }
 
 istream& operator>>(istream &input, LargeInt &li) {

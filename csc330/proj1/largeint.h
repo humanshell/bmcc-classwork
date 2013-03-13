@@ -1,7 +1,7 @@
 #ifndef LARGEINT_H
 #define LARGEINT_H
 class LargeInt {
-  int data[41];
+  int *data;
   int length;
   
   friend std::istream& operator>>(std::istream&, LargeInt&);
@@ -9,6 +9,7 @@ class LargeInt {
 
   public:
     LargeInt();
+    ~LargeInt();
     void insert(int);
     bool operator==(const LargeInt&);
     LargeInt operator+(const LargeInt&);
