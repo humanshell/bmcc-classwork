@@ -32,7 +32,7 @@ int main() {
   cout << li3 << endl;
 
   // ask user to insert a new digit into li1
-  cout << endl << "Enter a single digit you'd like inserted into your first LargeInt: ";
+  cout << endl << "Enter a single digit to insert into your first LargeInt: ";
   cin >> temp_int;
   li1.insert(temp_int);
 
@@ -41,7 +41,7 @@ int main() {
   cout << li1 << endl;
 
   // ask user to insert a new digit into li2
-  cout << endl << "Enter a single digit you'd like inserted into your second LargeInt: ";
+  cout << endl << "Enter a single digit to insert into your second LargeInt: ";
   cin >> temp_int;
   li2.insert(temp_int);
 
