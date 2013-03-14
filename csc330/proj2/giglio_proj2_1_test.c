@@ -14,6 +14,10 @@ int main(int argc, const char *argv[]) {
     return EXIT_FAILURE;
   }
 
+  // connect head and tail for circular list
+  head->next = head->prev = tail;
+  tail->next = tail->prev = head;
+
   // print out the welcome message
   printWelcome();
 
