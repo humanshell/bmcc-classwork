@@ -14,7 +14,8 @@ elem length(node*);
 void printWelcome();
 void deleteOne(elem, node*);
 void deleteAll(elem, node*);
-void insert(elem, node*);
+void insertOne(elem, node*);
+void insertAll(elem[], node*);
 void sortAscending(node*);
 void sortDescending(node*);
 void makeEmpty(node*);
@@ -26,3 +27,4 @@ int find(elem, node*);
 int printMenu();
 
 #endif
+
