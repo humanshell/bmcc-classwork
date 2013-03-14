@@ -19,25 +19,26 @@ int main(int argc, const char *argv[]) {
   tail->next = tail->prev = head;
 
   // print out the welcome message
+  // and initial menu
   printWelcome();
+  int choice = printMenu();
 
-  // print out the menu in a while loop so user can continue
-  // working with linked list until they wish to stop
-  int choice;
-  do {
-    choice = printMenu();
+  // print menu in a loop until user decides to stop
+  while (choice) {
     switch (choice) {
       case 1:
         choice = printMenu();
         break;
       case 2:
         printf("\nGoodbye!\n");
+        choice = 0;
         break;
       default:
         printf("\nThat was not a valid selection. I'm out!\n");
+        choice = 0;
         break;
     }
-  } while (choice);
+  }
 
   free(head);
   free(tail);

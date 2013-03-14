@@ -15,7 +15,7 @@ int printMenu() {
 
   printf("\nPlease choose from the following options:\n\n\
 1.) Insert a single element into the list\n\
-0.) Exit\n\n\
+2.) Exit\n\n\
 choice: "
   );
 
