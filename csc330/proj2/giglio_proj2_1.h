@@ -1,22 +1,25 @@
 #ifndef GIGLIO_PROJ2_1_H
 #define GIGLIO_PROJ2_1_H
-struct node {
-  int data;
+
+typedef int elem;
+
+typedef struct {
+  elem data;
   node *next;
   node *prev;
-};
+} node;
 
-int length(node*);
+elem length(node*);
 
-void deleteOne(int);
-void deleteAll(int);
-void insert(int);
+void deleteOne(elem);
+void deleteAll(elem);
+void insert(elem);
 void sortAscending(node*);
 void sortDescending(node*);
 void makeEmpty(node*);
 
 bool isFull(node*);
 bool isEmpty(node*);
-bool find(int);
+bool find(elem);
 
 #endif
