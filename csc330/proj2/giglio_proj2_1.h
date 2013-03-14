@@ -12,7 +12,6 @@ typedef struct node_s {
 elem length(node*);
 
 void printWelcome();
-void printMenu();
 void deleteOne(elem, node*);
 void deleteAll(elem, node*);
 void insert(elem, node*);
@@ -24,5 +23,6 @@ void makeEmpty(node*);
 int isFull(node*);
 int isEmpty(node*);
 int find(elem, node*);
+int printMenu();
 
 #endif
