@@ -14,8 +14,26 @@ int main(int argc, const char *argv[]) {
     return EXIT_FAILURE;
   }
 
-  //printf("I work!\n");
+  // print out the welcome message
   printWelcome();
+
+  // print out the menu in a while loop so user can continue
+  // working with linked list until they wish to stop
+  int choice;
+  do {
+    choice = printMenu();
+    switch (choice) {
+      case 1:
+        choice = printMenu();
+        break;
+      case 2:
+        printf("\nGoodbye!\n");
+        break;
+      default:
+        printf("\nThat was not a valid selection. I'm out!\n");
+        break;
+    }
+  } while (choice);
 
   free(head);
   free(tail);
