@@ -11,7 +11,8 @@ int length(node*);
 void deleteOne(int);
 void deleteAll(int);
 void insert(int);
-void sort(node*);
+void sortAscending(node*);
+void sortDescending(node*);
 void makeEmpty(node*);
 
 bool isFull(node*);
