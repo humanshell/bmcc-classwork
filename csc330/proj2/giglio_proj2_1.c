@@ -10,17 +10,35 @@ to continue using this menu until you choose to leave.\n\n"
   );
 }
 
+// print the menu used by the user to interact with the list
 int printMenu() {
   int choice = 0;
 
   printf("\nPlease choose from the following options:\n\n\
 1.) Insert a single element into the list\n\
-2.) Exit\n\n\
+2.) Check if the list is empty\n\
+3.) Exit\n\n\
 choice: "
   );
 
   // get the users choice
   scanf("%d", &choice);
   return choice;
+}
+
+// determine if the list is empty
+int isEmpty(node *n) {
+  int count = 1;
+  node *cursor = n->next;
+
+  while (cursor != n) {
+    count++;
+    cursor = cursor->next;
+  }
+
+  if (count > 2)
+    return 0;
+  else
+    return 1;
 }
 

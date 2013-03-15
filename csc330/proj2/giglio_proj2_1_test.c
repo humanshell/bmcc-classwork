@@ -30,6 +30,13 @@ int main(int argc, const char *argv[]) {
         choice = printMenu();
         break;
       case 2:
+        if (isEmpty(head))
+          printf("\nYes, the list is empty.\n");
+        else
+          printf("\nNo, the list is not empty.\n");
+        choice = printMenu();
+        break;
+      case 3:
         printf("\nGoodbye!\n");
         choice = 0;
         break;
