@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "giglio_proj2_1.h"
 
 // print a welcome message when program launches
@@ -15,9 +14,10 @@ int printMenu() {
   int choice = 0;
 
   printf("\nPlease choose from the following options:\n\n\
-1.) Insert a single element into the list\n\
-2.) Check if the list is empty\n\
-3.) Exit\n\n\
+1.) Print the list\n\
+2.) Insert a single element into the list\n\
+3.) Check if the list is empty\n\
+4.) Exit\n\n\
 choice: "
   );
 
@@ -40,5 +40,33 @@ int isEmpty(node *n) {
     return 0;
   else
     return 1;
+}
+
+// insert one element into the list
+void insertOne(elem e, node *n) {
+  node *rightElem = n->next;  
+
+  // if this is a new list with nothing in head, put e there
+  // else, if this is a new list with nothing in tail, put e there
+  // otherwise, create a new node and insert it into the list
+  if (n->data == NULL) {
+    n->data = (elem) e;
+  } else if (n->prev->data == NULL) {
+    n->prev->data = (elem) e;
+  } else {
+    node *newElem = (node *) malloc(sizeof(node));
+
+    if (newElem == NULL) {
+      printf("Error allocating memory!\n");
+      return EXIT_FAILURE;
+    }
+
+    newElem->data = (elem) e;
+    newElem->next = rightElem;
+    newElem->prev = n;
+    n->next = newElem;
+    rightElem->prev = newElem;
+  }
+
 }
 

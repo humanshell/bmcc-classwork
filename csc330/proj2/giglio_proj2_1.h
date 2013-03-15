@@ -1,20 +1,22 @@
 #ifndef GIGLIO_PROJ2_1_H
 #define GIGLIO_PROJ2_1_H
 
-typedef int elem;
+#include <stdlib.h>
+#include <stdio.h>
 
+typedef int elem;
 typedef struct node_s {
-  elem data;
+  int data;
   struct node_s *next;
   struct node_s *prev;
 } node;
 
-elem length(node*);
+int length(node*);
 
 void printWelcome();
 //void deleteOne(elem, node*);
 //void deleteAll(elem, node*);
-//void insertOne(elem, node*);
+void insertOne(elem, node*);
 //void insertAll(elem[], node*);
 //void sortAscending(node*);
 //void sortDescending(node*);

@@ -1,5 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
 #include "giglio_proj2_1.h"
 
 int main(int argc, const char *argv[]) {
@@ -22,6 +20,7 @@ int main(int argc, const char *argv[]) {
   // and initial menu
   printWelcome();
   int choice = printMenu();
+  elem e;
 
   // print menu in a loop until user decides to stop
   while (choice) {
@@ -30,13 +29,19 @@ int main(int argc, const char *argv[]) {
         choice = printMenu();
         break;
       case 2:
+        printf("Enter ONE element to be inserted into the list: ");
+        scanf("%d", &e);
+        insertOne(e, head);
+        choice = printMenu();
+        break;
+      case 3:
         if (isEmpty(head))
           printf("\nYes, the list is empty.\n");
         else
           printf("\nNo, the list is not empty.\n");
         choice = printMenu();
         break;
-      case 3:
+      case 4:
         printf("\nGoodbye!\n");
         choice = 0;
         break;
