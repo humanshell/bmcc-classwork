@@ -11,8 +11,6 @@ typedef struct node_s {
   struct node_s *prev;
 } node;
 
-//int length(node*);
-
 void printWelcome();
 void printList(node*);
 void insertOne(elem, node*);
@@ -26,7 +24,7 @@ void insertOne(elem, node*);
 // success == 1, failure == 0
 int printMenu();
 int isEmpty(node*);
-//int isFull(node*);
+//int length(node*);
 //int find(elem, node*);
 
 #endif
