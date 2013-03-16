@@ -30,7 +30,7 @@ int main(int argc, const char *argv[]) {
         break;
       case 2:
         printf("Enter ONE element to be inserted into the list: ");
-        scanf("%d", &e);
+        scanf("%p", &e);
         insertOne(e, head);
         choice = printMenu();
         break;
