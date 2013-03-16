@@ -55,22 +55,6 @@ void insertOne(elem e, node *n) {
   }
 }
 
-// determine if the list is empty
-int isEmpty(node *n) {
-  int count = 0;
-  node *cursor = n;
-
-  while (cursor->data != NULL) {
-    count++;
-    cursor = cursor->next;
-  }
-
-  if (count)
-    return 0;
-
-  return 1;
-}
-
 // print the menu used by the user to interact with the list
 int printMenu() {
   int choice = 0;
@@ -88,5 +72,21 @@ int printMenu() {
   // get the users choice
   scanf("%d", &choice);
   return choice;
+}
+
+// determine if the list is empty
+int isEmpty(node *n) {
+  int count = 0;
+  node *cursor = n;
+
+  while (cursor->data != NULL) {
+    count++;
+    cursor = cursor->next;
+  }
+
+  if (count)
+    return 0;
+
+  return 1;
 }
 

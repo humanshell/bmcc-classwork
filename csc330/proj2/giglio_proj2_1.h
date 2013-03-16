@@ -11,23 +11,23 @@ typedef struct node_s {
   struct node_s *prev;
 } node;
 
-int length(node*);
+//int length(node*);
 
 void printWelcome();
 void printList(node*);
-//void deleteOne(elem, node*);
-//void deleteAll(elem, node*);
 void insertOne(elem, node*);
 //void insertAll(elem[], node*);
+//void deleteOne(elem, node*);
+//void deleteAll(elem, node*);
 //void sortAscending(node*);
 //void sortDescending(node*);
 //void makeEmpty(node*);
 
 // success == 1, failure == 0
-//int isFull(node*);
-int isEmpty(node*);
-//int find(elem, node*);
 int printMenu();
+int isEmpty(node*);
+//int isFull(node*);
+//int find(elem, node*);
 
 #endif
 
