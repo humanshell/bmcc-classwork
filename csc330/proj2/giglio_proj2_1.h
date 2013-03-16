@@ -14,6 +14,7 @@ typedef struct node_s {
 int length(node*);
 
 void printWelcome();
+void printList(node*);
 //void deleteOne(elem, node*);
 //void deleteAll(elem, node*);
 void insertOne(elem, node*);

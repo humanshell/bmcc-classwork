@@ -26,27 +26,28 @@ int main(int argc, const char *argv[]) {
   while (choice) {
     switch (choice) {
       case 1:
+        printList(head);
         choice = printMenu();
         break;
       case 2:
-        printf("Enter ONE element to be inserted into the list: ");
-        scanf("%p", &e);
+        printf("\nEnter ONE element to be inserted into the list: ");
+        scanf("%d", &e);
         insertOne(e, head);
         choice = printMenu();
         break;
       case 3:
         if (isEmpty(head))
-          printf("\nYes, the list is empty.\n");
+          printf("\n  Yes, the list is empty.\n");
         else
-          printf("\nNo, the list is not empty.\n");
+          printf("\n  No, the list is not empty.\n");
         choice = printMenu();
         break;
       case 4:
-        printf("\nGoodbye!\n");
+        printf("\n  Goodbye!\n");
         choice = 0;
         break;
       default:
-        printf("\nThat was not a valid selection. I'm out!\n");
+        printf("\n  That was not a valid selection. I'm out!\n");
         choice = 0;
         break;
     }
