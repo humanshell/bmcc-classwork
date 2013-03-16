@@ -28,18 +28,18 @@ choice: "
 
 // determine if the list is empty
 int isEmpty(node *n) {
-  int count = 1;
-  node *cursor = n->next;
+  int count = 0;
+  node *cursor = n;
 
-  while (cursor != n) {
+  while (cursor->data != NULL) {
     count++;
     cursor = cursor->next;
   }
 
-  if (count > 2)
+  if (count)
     return 0;
-  else
-    return 1;
+
+  return 1;
 }
 
 // insert one element into the list
