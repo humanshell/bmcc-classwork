@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef int elem;
 typedef struct node_s {
   int data;
   struct node_s *next;
@@ -13,19 +12,18 @@ typedef struct node_s {
 
 void printWelcome();
 void printList(node*);
-void insertOne(elem, node*);
-//void insertAll(elem[], node*);
-//void deleteOne(elem, node*);
-//void deleteAll(elem, node*);
+//void deleteOne(int, node*);
+//void deleteAll(int, node*);
 //void sortAscending(node*);
 //void sortDescending(node*);
 //void makeEmpty(node*);
 
-// success == 1, failure == 0
 int printMenu();
 int isEmpty(node*);
+int insertOne(int, node*);
+//int insertAll(int[], node*);
 //int length(node*);
-//int find(elem, node*);
+//int find(int, node*);
 
 #endif
 

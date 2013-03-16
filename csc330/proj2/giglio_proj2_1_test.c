@@ -19,8 +19,7 @@ int main(int argc, const char *argv[]) {
   // print out the welcome message
   // and initial menu
   printWelcome();
-  int choice = printMenu();
-  elem e;
+  int e, choice = printMenu();
 
   // print menu in a loop until user decides to stop
   while (choice) {
