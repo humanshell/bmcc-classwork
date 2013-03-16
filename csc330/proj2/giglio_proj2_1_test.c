@@ -1,6 +1,7 @@
 #include "giglio_proj2_1.h"
 
 int main(int argc, const char *argv[]) {
+  int e, choice;
 
   // create initial head and tail nodes
   node *head = (node *) malloc(sizeof(node));
@@ -12,48 +13,43 @@ int main(int argc, const char *argv[]) {
     return EXIT_FAILURE;
   }
 
-  // connect head and tail for circular list
+  // connect head and tail for a circular list
+  // and initialize both data elements to -1
   head->next = head->prev = tail;
   tail->next = tail->prev = head;
+  head->data = tail->data = -1;
 
-  // print out the welcome message
-  // and initial menu
+  // print out welcome message and start menu loop
   printWelcome();
-  int e, choice = printMenu();
 
-  // print menu in a loop until user decides to stop
-  while (choice) {
+  do {
+    choice = printMenu();
     switch (choice) {
       case 1:
         printList(head);
-        choice = printMenu();
         break;
       case 2:
         printf("\nEnter ONE element to be inserted into the list: ");
         scanf("%d", &e);
         insertOne(e, head);
-        choice = printMenu();
         break;
       case 3:
         if (isEmpty(head))
           printf("\n  Yes, the list is empty.\n");
         else
           printf("\n  No, the list is not empty.\n");
-        choice = printMenu();
         break;
       case 4:
         printf("\n  Goodbye!\n");
-        choice = 0;
-        break;
+        free(head);
+        free(tail);
+        return EXIT_SUCCESS;
       default:
         printf("\n  That was not a valid selection. I'm out!\n");
-        choice = 0;
-        break;
+        free(head);
+        free(tail);
+        return EXIT_FAILURE;
     }
-  }
-
-  free(head);
-  free(tail);
-
-  return 0;
+  } while (choice);
 }
+
