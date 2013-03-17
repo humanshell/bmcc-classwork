@@ -12,17 +12,17 @@ typedef struct node_s {
 
 void printWelcome();
 void printList(node*);
-//void deleteOne(int, node*);
+void deleteOne(int, node*);
 //void deleteAll(int, node*);
 //void sortAscending(node*);
 //void sortDescending(node*);
 //void makeEmpty(node*);
 
 int printMenu();
+int lengthOf(node*);
 int isEmpty(node*);
 int insertOne(int, node*);
 //int insertAll(int[], node*);
-//int length(node*);
 //int find(int, node*);
 
 #endif

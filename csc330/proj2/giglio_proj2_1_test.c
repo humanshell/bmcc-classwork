@@ -19,14 +19,17 @@ int main(int argc, const char *argv[]) {
   tail->next = tail->prev = head;
   head->data = tail->data = -1;
 
-  // print out welcome message and start menu loop
+  // print out welcome message and then start menu loop
   printWelcome();
 
   do {
     choice = printMenu();
     switch (choice) {
       case 1:
-        printList(head);
+        if (isEmpty(head))
+          printf("\n  This list appears to be empty!\n");
+        else
+          printList(head);
         break;
       case 2:
         printf("\nEnter ONE element to be inserted into the list: ");
@@ -40,6 +43,9 @@ int main(int argc, const char *argv[]) {
           printf("\n  No, the list is not empty.\n");
         break;
       case 4:
+        printf("\n  List length: %d\n", lengthOf(head));
+        break;
+      case 5:
         printf("\n  Goodbye!\n");
         free(head);
         free(tail);
