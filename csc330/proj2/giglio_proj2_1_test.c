@@ -37,15 +37,24 @@ int main(int argc, const char *argv[]) {
         insertOne(e, head);
         break;
       case 3:
+        if (isEmpty(head)) {
+          printf("\n  This list appears to be empty!\n");
+        } else {
+          printf("\nEnter ONE element to be deleted from the list: ");
+          scanf("%d", &e);
+          deleteFirst(e, head);
+        }
+        break;
+      case 4:
         if (isEmpty(head))
           printf("\n  Yes, the list is empty.\n");
         else
           printf("\n  No, the list is not empty.\n");
         break;
-      case 4:
+      case 5:
         printf("\n  List length: %d\n", lengthOf(head));
         break;
-      case 5:
+      case 6:
         printf("\n  Goodbye!\n");
         free(head);
         free(tail);

@@ -26,23 +26,37 @@ void printList(node *n) {
   printf("\n");
 }
 
-void deleteOne(int e, node *n) {
+void deleteFirst(int e, node *n) {
+  node *cursor = n;
 
+  do {
+    if (cursor->data == e) {
+      node *leftElem = cursor->prev;
+      node *rightElem = cursor->next;
+      leftElem->next = rightElem;
+      rightElem->prev = leftElem;
+      cursor = NULL;
+      free(cursor);
+    } else {
+      cursor = cursor->next;
+    }
+  } while (cursor != n);
 }
 
 // print the menu used by the user to interact with the list
 int printMenu() {
   int choice = 0;
-  char *menu[5];
+  char *menu[6];
 
   menu[0] = "[1] Print the list";
   menu[1] = "[2] Insert a single element into the list";
-  menu[2] = "[3] Check if the list is empty";
-  menu[3] = "[4] Count the number of elements in the list";
-  menu[4] = "[5] Exit\n";
+  menu[2] = "[3] Delete the first occurrence of an element";
+  menu[3] = "[4] Check if the list is empty";
+  menu[4] = "[5] Count the number of elements in the list";
+  menu[5] = "[6] Exit\n";
 
   printf("\nPlease choose from the following options:\n\n");
-  while (choice < 5) printf("  %s\n", menu[choice++]);
+  while (choice < 6) printf("  %s\n", menu[choice++]);
   printf("choice: ");
 
   // get the users choice
