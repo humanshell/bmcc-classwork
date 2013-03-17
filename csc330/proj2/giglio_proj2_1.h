@@ -13,10 +13,10 @@ typedef struct node_s {
 void printWelcome();
 void printList(node*);
 void deleteFirst(int, node*);
-//void deleteAll(int, node*);
+//void deleteEach(int, node*);
+void deleteAll(node*);
 //void sortAscending(node*);
 //void sortDescending(node*);
-//void makeEmpty(node*);
 
 int printMenu();
 int lengthOf(node*);
