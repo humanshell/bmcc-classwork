@@ -31,12 +31,18 @@ void deleteFirst(int e, node *n) {
 
   do {
     if (cursor->data == e) {
-      node *leftElem = cursor->prev;
-      node *rightElem = cursor->next;
-      leftElem->next = rightElem;
-      rightElem->prev = leftElem;
-      cursor = NULL;
-      free(cursor);
+      if (lengthOf(n) < 3) {
+        cursor->data = -1;
+        return;
+      } else {
+        node *leftElem = cursor->prev;
+        node *rightElem = cursor->next;
+        leftElem->next = rightElem;
+        rightElem->prev = leftElem;
+        cursor = NULL;
+        free(cursor);
+        return;
+      }
     } else {
       cursor = cursor->next;
     }
@@ -61,7 +67,7 @@ int printMenu() {
 
   // get the users choice
   scanf("%d", &choice);
-  return choice;
+  return (int) choice;
 }
 
 // return the length of the list
