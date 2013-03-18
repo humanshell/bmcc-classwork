@@ -50,10 +50,6 @@ void deleteFirst(int e, node *n) {
   } while (cursor != n);
 }
 
-void deleteAll(node *n) {
-  
-}
-
 // print the menu used by the user to interact with the list
 int printMenu() {
   int choice = 0;
@@ -62,7 +58,7 @@ int printMenu() {
   menu[0] = "[1] Print the list";
   menu[1] = "[2] Insert a single element into the list";
   menu[2] = "[3] Delete the first occurrence of an element";
-  menu[3] = "[4] Delete all elements";
+  menu[3] = "[4] Check if an element is in the list";
   menu[4] = "[5] Check if the list is empty";
   menu[5] = "[6] Count the number of elements in the list";
   menu[6] = "[7] Exit\n";
@@ -127,5 +123,16 @@ int insertOne(int e, node *n) {
   }
 
   return 1;
+}
+
+int find(int e, node *n) {
+  node *cursor = n;
+
+  do {
+    if (cursor->data == e) return 1;
+    cursor = cursor->next;
+  } while (cursor != n);
+
+  return 0;
 }
 

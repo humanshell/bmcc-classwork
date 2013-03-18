@@ -14,7 +14,7 @@ void printWelcome();
 void printList(node*);
 void deleteFirst(int, node*);
 //void deleteEach(int, node*);
-void deleteAll(node*);
+//void deleteAll(node*);
 //void sortAscending(node*);
 //void sortDescending(node*);
 
@@ -23,7 +23,7 @@ int lengthOf(node*);
 int isEmpty(node*);
 int insertOne(int, node*);
 //int insertAll(int[], node*);
-//int find(int, node*);
+int find(int, node*);
 
 #endif
 

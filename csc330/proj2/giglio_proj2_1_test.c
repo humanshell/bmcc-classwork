@@ -32,7 +32,7 @@ int main(int argc, const char *argv[]) {
           printList(head);
         break;
       case 2:
-        printf("\nEnter ONE element to be inserted into the list: ");
+        printf("\n  Enter ONE element to be inserted into the list: ");
         scanf("%d", &e);
         insertOne(e, head);
         break;
@@ -40,16 +40,22 @@ int main(int argc, const char *argv[]) {
         if (isEmpty(head)) {
           printf("\n  This list appears to be empty!\n");
         } else {
-          printf("\nEnter ONE element to be deleted from the list: ");
+          printf("\n  Enter ONE element to be deleted from the list: ");
           scanf("%d", &e);
           deleteFirst(e, head);
         }
         break;
       case 4:
-        if (isEmpty(head))
-          printf("\n  This list is already empty!\n");
-        else
-          deleteAll(head);
+        if (isEmpty(head)) {
+          printf("\n  This list appears to be empty!\n");
+        } else {
+          printf("\n  Enter the element you'd like to check for: ");
+          scanf("%d", &e);
+          if (find(e, head))
+            printf("\n  %d is in the list.\n", e);
+          else
+            printf("\n  %d is not in the list.\n", e);
+        }
         break;
       case 5:
         if (isEmpty(head))
