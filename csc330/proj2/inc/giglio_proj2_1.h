@@ -10,7 +10,7 @@ typedef struct node_s {
   struct node_s *prev;
 } node;
 
-void printWelcome();
+void printWelcome(void);
 void printList(node*);
 void deleteFirst(int, node*);
 //void deleteEach(int, node*);
@@ -18,7 +18,7 @@ void deleteFirst(int, node*);
 //void sortAscending(node*);
 //void sortDescending(node*);
 
-int printMenu();
+int printMenu(void);
 int lengthOf(node*);
 int isEmpty(node*);
 int insertOne(int, node*);

@@ -1,7 +1,7 @@
 #include "giglio_proj2_1.h"
 
 // print a welcome message when program launches
-void printWelcome() {
+void printWelcome(void) {
   printf("\nWelcome to Dominic's Circular Doubly Linked List example!\n\
 This program allows you to create a list of positive integers.\n\
 Use the menu below to experimemt with all the different ways\n\
@@ -51,7 +51,7 @@ void deleteFirst(int e, node *n) {
 }
 
 // print the menu used by the user to interact with the list
-int printMenu() {
+int printMenu(void) {
   int choice = 0;
   char *menu[7];
 
