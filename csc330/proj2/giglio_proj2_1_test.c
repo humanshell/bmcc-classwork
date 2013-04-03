@@ -46,6 +46,12 @@ int main(int argc, const char *argv[]) {
         }
         break;
       case 4:
+        if (isEmpty(head))
+          printf("\n  This list appears to be empty!\n");
+        else
+          deleteAll(head);
+        break;
+      case 5:
         if (isEmpty(head)) {
           printf("\n  This list appears to be empty!\n");
         } else {
@@ -57,16 +63,16 @@ int main(int argc, const char *argv[]) {
             printf("\n  %d is not in the list.\n", e);
         }
         break;
-      case 5:
+      case 6:
         if (isEmpty(head))
           printf("\n  Yes, the list is empty.\n");
         else
           printf("\n  No, the list is not empty.\n");
         break;
-      case 6:
+      case 7:
         printf("\n  List length: %d\n", lengthOf(head));
         break;
-      case 7:
+      case 8:
         printf("\n  Goodbye!\n");
         free(head);
         free(tail);

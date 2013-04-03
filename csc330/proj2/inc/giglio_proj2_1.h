@@ -14,7 +14,7 @@ void printWelcome(void);
 void printList(node*);
 void deleteOne(int, node*);
 //void deleteEach(int, node*);
-//void deleteAll(node*);
+void deleteAll(node*);
 //void sortAscending(node*);
 //void sortDescending(node*);
 
