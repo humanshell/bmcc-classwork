@@ -21,7 +21,7 @@ void deleteFirst(int, node*);
 int printMenu(void);
 int lengthOf(node*);
 int isEmpty(node*);
-int insertOne(int, node*);
+int insert(int, node*);
 //int insertAll(int[], node*);
 int find(int, node*);
 

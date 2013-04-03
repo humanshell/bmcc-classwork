@@ -34,7 +34,7 @@ int main(int argc, const char *argv[]) {
       case 2:
         printf("\n  Enter ONE element to be inserted into the list: ");
         scanf("%d", &e);
-        insertOne(e, head);
+        insert(e, head);
         break;
       case 3:
         if (isEmpty(head)) {

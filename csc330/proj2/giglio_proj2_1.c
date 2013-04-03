@@ -97,7 +97,7 @@ int isEmpty(node *n) {
 }
 
 // insert one element into the list
-int insertOne(int e, node *n) {
+int insert(int e, node *n) {
   node *rightElem = n->next;  
 
   // if this is a new list with nothing in head, put e there
