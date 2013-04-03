@@ -27,7 +27,7 @@ void printList(node *n) {
 }
 
 // delete one element, the first that's found
-void deleteFirst(int e, node *n) {
+void deleteOne(int e, node *n) {
   node *cursor = n;
 
   do {

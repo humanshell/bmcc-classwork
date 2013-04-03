@@ -42,7 +42,7 @@ int main(int argc, const char *argv[]) {
         } else {
           printf("\n  Enter ONE element to be deleted from the list: ");
           scanf("%d", &e);
-          deleteFirst(e, head);
+          deleteOne(e, head);
         }
         break;
       case 4:
