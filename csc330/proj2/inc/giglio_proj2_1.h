@@ -15,7 +15,7 @@ typedef struct node {
 } node_t;
 
 // structure to control an entire list of nodes
-typedef struct node_list {
+typedef struct {
   node_t *cursor;
   unsigned int len;
   void (*free)(void *val);
