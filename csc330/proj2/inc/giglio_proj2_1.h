@@ -14,12 +14,16 @@ typedef struct node {
   void *val;
 } node_t;
 
-// structure to control an entire list of nodes
+// structure to control a list of nodes
 typedef struct {
-  node_t *cursor;
+  node_t *curr;
   unsigned int len;
   void (*free)(void *val);
 } node_list_t;
+
+node_t *new_node(void *);              // create a new node
+node_list_t *new_node_list(void);      // create a new node list
+void destroy_node_list(node_list_t *); // destroy a node list
 
 #ifdef __cplusplus
 }

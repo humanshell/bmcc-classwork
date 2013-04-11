@@ -26,6 +26,9 @@ int main(int argc, const char *argv[]) {
   int ch, highlight = 1;
   char directions[] = "Use arrow keys to navigate, press enter to select";
 
+  // create a new node list
+  node_list_t *node_list = new_node_list();
+
   // initialize the ncurses session
   initscr();
   clear();
@@ -68,6 +71,7 @@ int main(int argc, const char *argv[]) {
           case 7: /* count elements */
             break;
           case 8: /* exit */
+            destroy_node_list(node_list);
             endwin();
             return 0;
         }
