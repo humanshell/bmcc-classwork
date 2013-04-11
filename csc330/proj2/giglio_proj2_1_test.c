@@ -31,6 +31,7 @@ int main(int argc, const char *argv[]) {
   clear();
   noecho();
   cbreak();
+  curs_set(0);
   getmaxyx(stdscr, stdscr_rows, stdscr_cols);
   mvprintw(2, 2, "%s", directions);
 
