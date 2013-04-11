@@ -19,11 +19,13 @@ typedef struct {
   node_t *curr;
   unsigned int len;
   void (*free)(void *val);
-} node_list_t;
+  int (*match)(void *a, void *b);
+} list_t;
 
-node_t *new_node(void *);              // create a new node
-node_list_t *new_node_list(void);      // create a new node list
-void destroy_node_list(node_list_t *); // destroy a node list
+node_t *new_node(void *);    // create a new node
+list_t *new_list(void);      // create a new node list
+void destroy_list(list_t *); // destroy a node list
+
 
 #ifdef __cplusplus
 }

@@ -19,10 +19,10 @@ node_t *new_node(void *val) {
 }
 
 // create a new node list
-node_list_t *new_node_list(void) {
-  node_list_t *list;
+list_t *new_list(void) {
+  list_t *list;
 
-  if (!(list = malloc(sizeof(node_list_t))))
+  if (!(list = malloc(sizeof(list_t))))
     return NULL;
 
   list->curr = NULL;
@@ -32,7 +32,7 @@ node_list_t *new_node_list(void) {
 }
 
 // destroy a node list
-void destroy_node_list(node_list_t *list) {
+void destroy_list(list_t *list) {
   unsigned int len = list->len;
   node_t *next;
   node_t *curr = list->curr;
