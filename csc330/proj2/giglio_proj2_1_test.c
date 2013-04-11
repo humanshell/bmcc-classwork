@@ -57,8 +57,19 @@ int main(int argc, const char *argv[]) {
           ++highlight;
         break;
       case 10:
-        endwin();
-        return 0;
+        switch (highlight) {
+          case 1: /* print */
+          case 2: /* insert one */
+          case 3: /* remove one */
+          case 4: /* remove all */
+          case 5: /* find */
+          case 6: /* check length */
+          case 7: /* count elements */
+            break;
+          case 8: /* exit */
+            endwin();
+            return 0;
+        }
     }
 
     print_menu(menu_win, highlight);
