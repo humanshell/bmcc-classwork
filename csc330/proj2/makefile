@@ -15,7 +15,7 @@ $(ODIR)/%.o: %.c $(DEPS)
 		$(CC) -c -o $@ $< $(CFLAGS)
 
 giglio_proj2_1: $(OBJ)
-		gcc -o $@ $^ $(CFLAGS)
+		gcc -o $@ $^ $(CFLAGS) -lncurses
 
 .PHONY: clean
 
