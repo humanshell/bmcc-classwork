@@ -22,10 +22,11 @@ typedef struct {
   int (*match)(void *a, void *b);
 } list_t;
 
-node_t *new_node(void *);    // create a new node
-list_t *new_list(void);      // create a new node list
-void destroy_list(list_t *); // destroy a node list
-
+node_t *new_node(void *);                 // create a new node
+list_t *new_list(void);                   // create a new list
+void destroy_list(list_t *);              // destroy a list
+node_t *list_insert(list_t *, node_t *);  // insert element
+void list_remove_one(list_t *, node_t *); // remove one element
 
 #ifdef __cplusplus
 }
