@@ -93,6 +93,19 @@ int main(int argc, const char *argv[]) {
             noecho();
             break;
           case 3: /* remove one */
+            echo();
+            curs_set(1);
+            mvprintw(stdscr_rows - 2, 2, "%s", remove_message);
+            clrtoeol();
+            move(stdscr_rows - 2, (strlen(remove_message) + 2));
+            char *tmp_str = malloc(sizeof(char *));
+            getstr(tmp_str);
+            list_insert(node_list, new_node(tmp_str));
+            mvprintw(stdscr_rows - 2, 2, "Element Inserted!");
+            clrtoeol();
+            curs_set(0);
+            noecho();
+            break;
           case 4: /* remove each */
           case 5: /* remove all */
           case 6: /* find */

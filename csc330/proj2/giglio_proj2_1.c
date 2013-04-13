@@ -13,13 +13,10 @@ node_t *new_node(void *val) {
   return node;
 }
 
-// create a new node list
+// create a new list
 list_t *new_list(void) {
   list_t *list;
-
-  if (!(list = malloc(sizeof(list_t))))
-    return NULL;
-
+  if (!(list = malloc(sizeof(list_t)))) return NULL;
   list->curr = NULL;
   list->free = NULL;
   list->match = NULL;
@@ -27,7 +24,7 @@ list_t *new_list(void) {
   return list;
 }
 
-// destroy a node list
+// destroy a list
 void destroy_list(list_t *list) {
   unsigned int len = list->len;
   node_t *next;
@@ -42,6 +39,7 @@ void destroy_list(list_t *list) {
   free(list);
 }
 
+// insert one node
 node_t *list_insert(list_t *list, node_t *node) {
   if (!node) return NULL;
 
@@ -60,4 +58,21 @@ node_t *list_insert(list_t *list, node_t *node) {
   return node;
 }
 
+// remove one node
+void list_remove_one(list_t *list, node_t *node) {
+  if (list->len) {
+    if (list->len == 1) {
+      list->curr = NULL;
+      list->len = 0;
+      return;
+    } else {
+      list->curr = node->next;
+      node->prev->next = node->next;
+      node->next->prev = node->prev;
+      if (list->free) list->free(node->val);
+      free(node);
+      --list->len;
+    }
+  }
+}
 
