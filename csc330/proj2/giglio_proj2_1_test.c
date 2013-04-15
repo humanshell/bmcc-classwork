@@ -13,7 +13,6 @@ char *choices[] = {
                     "Remove an element from the list",
                     "Remove each occurrence of an element",
                     "Remove all elements from the list",
-                    "Find an element in the list",
                     "Count the number of elements in the list",
                     "Exit",
                   };
@@ -45,7 +44,7 @@ int main(int argc, const char *argv[]) {
   mvprintw(2, 2, "%s", directions);
 
   // initialize the menu window
-  menu_win = newwin(12, 50, ((stdscr_rows - 12) / 2), ((stdscr_cols - 50) / 2));
+  menu_win = newwin(9, 50, ((stdscr_rows - 9) / 2), ((stdscr_cols - 50) / 2));
   getmaxyx(menu_win, menu_win_rows, menu_win_cols);
   keypad(menu_win, TRUE);
   print_menu(menu_win, highlight);
@@ -123,13 +122,11 @@ int main(int argc, const char *argv[]) {
             mvprintw(stdscr_rows - 2, 2, "All Elements Removed!");
             clrtoeol();
             break;
-          case 6: /* find */
-            break;
-          case 7: /* count elements */
+          case 6: /* count elements */
             mvprintw(stdscr_rows - 2, 2, "List length: %d", node_list->len);
             clrtoeol();
             break;
-          case 8: /* exit */
+          case 7: /* exit */
             destroy_list(node_list);
             endwin();
             return 0;
@@ -143,11 +140,11 @@ int main(int argc, const char *argv[]) {
 
 // this function prints the main menu in the passed window
 void print_menu(WINDOW *menu_win, int highlight) {
-  int x, y, i;
+  int x = 3, y = 1, i;
 
   box(menu_win, 0, 0);
 
-  for (i = 0, x = y = 2; i < n_choices; i++, y++) {
+  for (i = 0; i < n_choices; i++, y++) {
     if (highlight == i + 1) {
       wattron(menu_win, A_REVERSE);
       mvwprintw(menu_win, y, x, "[*] %s", choices[i]);
