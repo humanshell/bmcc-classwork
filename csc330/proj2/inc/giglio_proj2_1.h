@@ -27,6 +27,7 @@ list_t *new_list(void);                   // create a new list
 void destroy_list(list_t *);              // destroy a list
 node_t *list_insert(list_t *, node_t *);  // insert one node
 void list_remove_one(list_t *, node_t *); // remove one node
+void list_remove_all(list_t *);           // remove all nodes
 node_t *list_find(list_t *, void *);      // find one node
 
 #ifdef __cplusplus

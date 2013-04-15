@@ -75,6 +75,24 @@ void list_remove_one(list_t *list, node_t *node) {
   }
 }
 
+// remove all nodes
+void list_remove_all(list_t *list) {
+  if (list->len) {
+    unsigned int len = list->len;
+    node_t *next;
+
+    while (len--) {
+      next = list->curr->next;
+      if (list->free) list->free(list->curr->val);
+      free(list->curr);
+      list->curr = next;
+    }
+
+    list->len = 0;
+    list->curr = NULL;
+  }
+}
+
 // find one node
 // return node associated with val or NULL if not found
 node_t *list_find(list_t *list, void *val) {

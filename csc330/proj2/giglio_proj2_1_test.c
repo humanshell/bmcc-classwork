@@ -119,6 +119,10 @@ int main(int argc, const char *argv[]) {
             break;
           case 4: /* remove each */
           case 5: /* remove all */
+            list_remove_all(node_list);
+            mvprintw(stdscr_rows - 2, 2, "All Elements Removed!");
+            clrtoeol();
+            break;
           case 6: /* find */
             break;
           case 7: /* count elements */
@@ -126,7 +130,6 @@ int main(int argc, const char *argv[]) {
             clrtoeol();
             break;
           case 8: /* exit */
-            free(tmp_str);
             destroy_list(node_list);
             endwin();
             return 0;
