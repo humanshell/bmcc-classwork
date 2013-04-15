@@ -68,5 +68,7 @@ LargeInt LargeInt::operator+(const LargeInt &li2) {
     }
   }
 
+  if (carry) sum.insert(1);
+
   return sum;
 }
