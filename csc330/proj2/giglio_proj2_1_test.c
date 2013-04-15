@@ -3,7 +3,8 @@
 #include "giglio_proj2_1.h"
 
 // function declarations (prototypes)
-void print_menu(WINDOW *, int);
+static void print_menu(WINDOW *, int);
+static int match(void *a, void *b) { return 0 == strcmp(a, b); }
 
 // global variables
 char *choices[] = {
@@ -23,13 +24,16 @@ int stdscr_rows, stdscr_cols, menu_win_rows, menu_win_cols;
 // this is where the magic happens
 int main(int argc, const char *argv[]) {
   WINDOW *menu_win;
+  node_t *tmp_node;
   int len, ch, highlight = 1;
+  char *tmp_str;
   char directions[] = "Use arrow keys to navigate, press enter to select";
   char insert_message[] = "Enter the element you'd like to insert: ";
   char remove_message[] = "Enter the element you'd like to remove: ";
 
   // create a new node list
   list_t *node_list = new_list();
+  node_list->match = match;
 
   // initialize the ncurses session
   initscr();
@@ -65,7 +69,7 @@ int main(int argc, const char *argv[]) {
       case 10:
         switch (highlight) {
           case 1: /* print */
-            if (node_list->len > 0) {
+            if (node_list->len) {
               len = node_list->len;
               mvprintw(stdscr_rows - 2, 2, "List elements:");
               clrtoeol();
@@ -84,7 +88,7 @@ int main(int argc, const char *argv[]) {
             mvprintw(stdscr_rows - 2, 2, "%s", insert_message);
             clrtoeol();
             move(stdscr_rows - 2, (strlen(insert_message) + 2));
-            char *tmp_str = malloc(sizeof(char *));
+            tmp_str = (char *) malloc(sizeof(char *));
             getstr(tmp_str);
             list_insert(node_list, new_node(tmp_str));
             mvprintw(stdscr_rows - 2, 2, "Element Inserted!");
@@ -98,10 +102,17 @@ int main(int argc, const char *argv[]) {
             mvprintw(stdscr_rows - 2, 2, "%s", remove_message);
             clrtoeol();
             move(stdscr_rows - 2, (strlen(remove_message) + 2));
-            char *tmp_str = malloc(sizeof(char *));
+            tmp_str = (char *) malloc(sizeof(char *));
             getstr(tmp_str);
-            list_insert(node_list, new_node(tmp_str));
-            mvprintw(stdscr_rows - 2, 2, "Element Inserted!");
+            tmp_node = list_find(node_list, tmp_str);
+
+            if (tmp_node) {
+              list_remove_one(node_list, tmp_node);
+              mvprintw(stdscr_rows - 2, 2, "Element Removed!");
+            } else {
+              mvprintw(stdscr_rows - 2, 2, "Element Not Found!");
+            }
+
             clrtoeol();
             curs_set(0);
             noecho();
