@@ -1,5 +1,5 @@
-CC = clang
-DEPS = inc/giglio_proj2_1.h
+CC = gcc
+DEPS = giglio_proj2_1.h
 CFLAGS = -lncurses -O3 -std=c99 -Wall -Iinc
 
 %.o: %.c $(DEPS)
