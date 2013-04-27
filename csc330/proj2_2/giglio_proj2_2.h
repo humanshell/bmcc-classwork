@@ -1,5 +1,5 @@
-#ifndef __GIGLIO_PROJ2_1_H__
-#define __GIGLIO_PROJ2_1_H__
+#ifndef __GIGLIO_PROJ2_2_H__
+#define __GIGLIO_PROJ2_2_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -33,5 +33,5 @@ node_t *list_find(list_t *, int);          // find one node
 }
 #endif
 
-#endif /* __GIGLIO_PROJ2_1_H__ */
+#endif /* __GIGLIO_PROJ2_2_H__ */
 

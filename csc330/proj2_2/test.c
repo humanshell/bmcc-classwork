@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "giglio_proj2_1.h"
+#include "giglio_proj2_2.h"
 
 // Helpers
 

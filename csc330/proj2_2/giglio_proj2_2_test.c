@@ -1,6 +1,6 @@
 #include <ncurses.h> /* ncurses.h includes stdio.h */ 
 #include <string.h>
-#include "giglio_proj2_1.h"
+#include "giglio_proj2_2.h"
 
 // function declarations (prototypes)
 static void print_menu(WINDOW *, int);
