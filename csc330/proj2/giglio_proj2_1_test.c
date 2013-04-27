@@ -4,7 +4,7 @@
 
 // function declarations (prototypes)
 static void print_menu(WINDOW *, int);
-static int match(void *a, void *b) { return 0 == strcmp(a, b); }
+static int get_input(char *);
 
 // global variables
 char *choices[] = {
@@ -16,23 +16,20 @@ char *choices[] = {
                     "Count the number of elements in the list",
                     "Exit",
                   };
-
 int n_choices = sizeof(choices) / sizeof(char *);
 int stdscr_rows, stdscr_cols, menu_win_rows, menu_win_cols;
 
 // this is where the magic happens
 int main(int argc, const char *argv[]) {
   WINDOW *menu_win;
-  node_t *tmp_node;
+  node_t *curr;
   int len, ch, highlight = 1;
-  char *tmp_str;
   char directions[] = "Use arrow keys to navigate, press enter to select";
-  char insert_message[] = "Enter the element you'd like to insert: ";
-  char remove_message[] = "Enter the element you'd like to remove: ";
+  char insert_msg[] = "Enter the element you'd like to insert: ";
+  char remove_msg[] = "Enter the element you'd like to remove: ";
 
   // create a new node list
   list_t *node_list = new_list();
-  node_list->match = match;
 
   // initialize the ncurses session
   initscr();
@@ -70,11 +67,12 @@ int main(int argc, const char *argv[]) {
           case 1: /* print */
             if (node_list->len) {
               len = node_list->len;
+              curr = node_list->head->next;
               mvprintw(stdscr_rows - 2, 2, "List elements:");
               clrtoeol();
               while (len--) {
-                printw(" %s", node_list->curr->val);
-                node_list->curr = node_list->curr->next;
+                printw(" %d", curr->val);
+                curr = curr->next;
               }
             } else {
               mvprintw(stdscr_rows - 2, 2, "The list is empty");
@@ -82,41 +80,34 @@ int main(int argc, const char *argv[]) {
             }
             break;
           case 2: /* insert one */
-            echo();
-            curs_set(1);
-            mvprintw(stdscr_rows - 2, 2, "%s", insert_message);
-            clrtoeol();
-            move(stdscr_rows - 2, (strlen(insert_message) + 2));
-            tmp_str = (char *) malloc(sizeof(char *));
-            getstr(tmp_str);
-            list_insert(node_list, new_node(tmp_str));
+            list_insert(node_list, new_node(get_input(insert_msg)));
             mvprintw(stdscr_rows - 2, 2, "Element Inserted!");
             clrtoeol();
-            curs_set(0);
-            noecho();
             break;
           case 3: /* remove one */
-            echo();
-            curs_set(1);
-            mvprintw(stdscr_rows - 2, 2, "%s", remove_message);
-            clrtoeol();
-            move(stdscr_rows - 2, (strlen(remove_message) + 2));
-            tmp_str = (char *) malloc(sizeof(char *));
-            getstr(tmp_str);
-            tmp_node = list_find(node_list, tmp_str);
+            curr = list_find(node_list, get_input(remove_msg));
 
-            if (tmp_node) {
-              list_remove_one(node_list, tmp_node);
+            if (curr) {
+              list_remove(node_list, curr);
               mvprintw(stdscr_rows - 2, 2, "Element Removed!");
             } else {
               mvprintw(stdscr_rows - 2, 2, "Element Not Found!");
             }
 
             clrtoeol();
-            curs_set(0);
-            noecho();
             break;
           case 4: /* remove each */
+            curr = list_find(node_list, get_input(remove_msg));
+
+            if (curr) {
+              list_remove_each(node_list, curr);
+              mvprintw(stdscr_rows - 2, 2, "All Matching Elements Removed!");
+            } else {
+              mvprintw(stdscr_rows - 2, 2, "Element Not Found!");
+            }
+
+            clrtoeol();
+            break;
           case 5: /* remove all */
             list_remove_all(node_list);
             mvprintw(stdscr_rows - 2, 2, "All Elements Removed!");
@@ -127,7 +118,7 @@ int main(int argc, const char *argv[]) {
             clrtoeol();
             break;
           case 7: /* exit */
-            destroy_list(node_list);
+            list_destroy(node_list);
             endwin();
             return 0;
         }
@@ -155,3 +146,16 @@ void print_menu(WINDOW *menu_win, int highlight) {
   }
 } /* end print_menu() */
 
+// this function is responsible for getting user input
+int get_input(char *msg) {
+  char *str = (char *) malloc(sizeof(char *));
+  echo();
+  curs_set(1);
+  mvprintw(stdscr_rows - 2, 2, "%s", msg);
+  clrtoeol();
+  move(stdscr_rows - 2, (strlen(msg) + 2));
+  getstr(str);
+  curs_set(0);
+  noecho();
+  return atoi(str);
+}

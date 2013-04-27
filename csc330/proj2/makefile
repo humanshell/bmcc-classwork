@@ -1,23 +1,19 @@
-IDIR=inc
-CC=gcc
-CFLAGS=-I$(IDIR)
+CC = clang
+DEPS = inc/giglio_proj2_1.h
+CFLAGS = -lncurses -O3 -std=c99 -Wall -Iinc
 
-ODIR=obj
-LDIR=lib
-
-_DEPS = giglio_proj2_1.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
-
-_OBJ = giglio_proj2_1_test.o giglio_proj2_1.o 
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
-
-$(ODIR)/%.o: %.c $(DEPS)
+%.o: %.c $(DEPS)
 		$(CC) -c -o $@ $< $(CFLAGS)
 
-giglio_proj2_1: $(OBJ)
-		gcc -o $@ $^ $(CFLAGS) -lncurses
+giglio_proj2_1: giglio_proj2_1_test.o giglio_proj2_1.o
+		gcc -o $@ $^ $(CFLAGS)
 
-.PHONY: clean
+test: test.o giglio_proj2_1.o
+		gcc -o list_test $^ $(CFLAGS)
+		@./list_test
 
 clean:
-		rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+		rm -f *.o giglio_proj2_1 list_test
+
+.PHONY: clean test
+
