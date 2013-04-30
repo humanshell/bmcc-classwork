@@ -1,9 +1,10 @@
 .DS_Store
 largeint_test
-pendulum
 pointers
 giglio_proj1
 giglio_proj2_1
+giglio_proj3
 *.o
-list/
 list_test
+assembly_proj6.asm
+
