@@ -1,15 +1,11 @@
-#ifndef __STACK_H__
-#define __STACK_H__
+#ifndef __GSTACK_H__
+#define __GSTACK_H__
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-// stack structure object
-typedef struct {
-  node_t *top;
-  int size;
-} stack_t;
+#include <stdlib.h>
 
 // node structure object
 typedef struct node {
@@ -17,13 +13,19 @@ typedef struct node {
   int val;
 } node_t;
 
-stack_t *new_stack(void);      // initialize a new stack object
-void stack_push(stack_t, int); // push new item onto stack
-void stack_pop(stack_t);       // pop top item off of stack
+// stack structure object
+typedef struct {
+  node_t *top;
+  unsigned int size;
+} gstack_t;
+
+gstack_t *new_gstack(void);      // initialize a new stack object
+void gstack_push(gstack_t, int); // push new item onto stack
+void gstack_pop(gstack_t);       // pop top item off of stack
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif /* __STACK_H__ */
+#endif /* __GSTACK_H__ */
 

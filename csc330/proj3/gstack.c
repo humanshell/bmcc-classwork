@@ -1,30 +1,30 @@
-#include "stack.h"
+#include "gstack.h"
 
 // initialize a new stack object
-stack_t *new_stack(void) {
-  stack_t *stack;
-  if (!(stack = (stack_t *) malloc(sizeof(stack_t)))) return NULL;
-  stack->top = NULL;
-  stack->size = 0;
-  return stack;
+gstack_t *new_gstack(void) {
+  gstack_t *gstack;
+  if (!(gstack = (gstack_t *) malloc(sizeof(gstack_t)))) return NULL;
+  gstack->top = NULL;
+  gstack->size = 0;
+  return gstack;
 }
 
 // push new item onto stack
-void stack_push(stack_t stack, int val) {
+void gstack_push(gstack_t gstack, int val) {
   node_t *node = (node_t *) malloc(sizeof(node_t));
   node->val = val;
-  node->next = stack->top;
-  stack->top = node;
-  ++stack->size;
+  node->next = gstack->top;
+  gstack->top = node;
+  ++gstack->size;
 }
 
 // pop top item off of stack
-void stack_pop(stack_t stack) {
-  if (stack->size) {
-    node_t *old_top = stack->top;
-    stack->top = stack->top->next;
+void gstack_pop(gstack_t gstack) {
+  if (gstack->size) {
+    node_t *old_top = gstack->top;
+    gstack->top = gstack->top->next;
     free(old_top);
-    --stack->size;
+    --gstack->size;
   }
 }
 
