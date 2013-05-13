@@ -10,7 +10,7 @@ gstack_t *new_gstack(void) {
 }
 
 // push new item onto stack
-void gstack_push(gstack_t gstack, int val) {
+void gstack_push(gstack_t *gstack, int val) {
   node_t *node = (node_t *) malloc(sizeof(node_t));
   node->val = val;
   node->next = gstack->top;
@@ -19,7 +19,7 @@ void gstack_push(gstack_t gstack, int val) {
 }
 
 // pop top item off of stack
-void gstack_pop(gstack_t gstack) {
+void gstack_pop(gstack_t *gstack) {
   if (gstack->size) {
     node_t *old_top = gstack->top;
     gstack->top = gstack->top->next;
