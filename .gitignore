@@ -1,10 +1,11 @@
 .DS_Store
 largeint_test
+list_test
+gstack_test
 pointers
 giglio_proj1
 giglio_proj2_1
 giglio_proj3
 *.o
-list_test
 assembly_proj6.asm
 
