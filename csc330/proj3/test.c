@@ -30,16 +30,27 @@ static void test_gstack_push(void) {
 }
 
 static void test_gstack_pop(void) {
+  int old_top_val = 0;
   gstack_t *test_gstack = new_gstack();
   gstack_push(test_gstack, 1);
   gstack_push(test_gstack, 2);
   gstack_push(test_gstack, 3);
-  gstack_pop(test_gstack);
+  old_top_val = gstack_pop(test_gstack);
   assert(test_gstack->size == 2);
   assert(test_gstack->top->val == 2);
-  gstack_pop(test_gstack);
+  assert(old_top_val == 3);
+  old_top_val = gstack_pop(test_gstack);
   assert(test_gstack->size == 1);
   assert(test_gstack->top->val == 1);
+  assert(old_top_val == 2);
+  old_top_val = gstack_pop(test_gstack);
+  assert(test_gstack->size == 0);
+  assert(test_gstack->top == NULL);
+  assert(old_top_val == 1);
+  old_top_val = gstack_pop(test_gstack);
+  assert(test_gstack->size == 0);
+  assert(test_gstack->top == NULL);
+  assert(old_top_val == NULL);
 }
 
 int main(int argc, const char *argv[]) {
