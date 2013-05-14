@@ -19,12 +19,17 @@ void gstack_push(gstack_t *gstack, int val) {
 }
 
 // pop top item off of stack
-void gstack_pop(gstack_t *gstack) {
+int gstack_pop(gstack_t *gstack) {
+  int retval = NULL;
+
   if (gstack->size) {
     node_t *old_top = gstack->top;
     gstack->top = gstack->top->next;
+    retval = old_top->val;
     free(old_top);
     --gstack->size;
   }
+
+  return retval;
 }
 
