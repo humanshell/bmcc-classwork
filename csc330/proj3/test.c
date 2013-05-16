@@ -50,7 +50,7 @@ static void test_gstack_pop(void) {
   old_top_val = gstack_pop(test_gstack);
   assert(test_gstack->size == 0);
   assert(test_gstack->top == NULL);
-  assert(old_top_val == NULL);
+  assert(old_top_val == 0);
 }
 
 int main(int argc, const char *argv[]) {

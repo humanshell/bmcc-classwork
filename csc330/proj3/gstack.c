@@ -20,7 +20,7 @@ void gstack_push(gstack_t *gstack, int val) {
 
 // pop top item off of stack
 int gstack_pop(gstack_t *gstack) {
-  int retval = NULL;
+  int retval = 0;
 
   if (gstack->size) {
     node_t *old_top = gstack->top;
