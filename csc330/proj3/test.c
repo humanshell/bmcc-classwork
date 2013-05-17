@@ -54,8 +54,8 @@ static void test_gstack_pop(void) {
 }
 
 int main(int argc, const char *argv[]) {
-  printf("\ngstack_t: %ldb\n", sizeof(gstack_t));
-  printf("node_t: %ldb\n", sizeof(node_t));
+  printf("\ngstack_t: %db\n", sizeof(gstack_t));
+  printf("node_t: %db\n", sizeof(node_t));
   test(new_gstack);
   test(gstack_push);
   test(gstack_pop);
