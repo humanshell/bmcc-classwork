@@ -2,14 +2,20 @@
 #include <string.h>
 #include "gstack.h"
 
+// these constants define operator precedence
+#define ADD 1
+#define SUB 1
+#define MUL 2
+#define DIV 2
+
+// global variables for evaluating user's expression
+char c, *expression;
+
 // main function
 int main(void) {
 
-  // variables and objects needed to evaluate user's expression
-  char c, *exp;
-
   // allocate memory for expression
-  if (!(exp = (char *) malloc(sizeof(c)))) {
+  if (!(expression = (char *) malloc(sizeof(c)))) {
     printf("Could not allocate memory for your expression!\n");
     return EXIT_FAILURE;
   }
@@ -21,20 +27,22 @@ int main(void) {
   int i = 0;
   while ((c = getchar()) != '\n') {
     if (c != ' ') {
-      exp[i++] = (char) c;
-      exp = realloc(exp, sizeof(exp) + sizeof(c));
+      expression[i++] = (char) c;
+      expression = realloc(expression, sizeof(expression) + sizeof(c));
     }
   }
-  exp[i] = '\0';
+  expression[i] = '\0';
 
-  printf("Expression: %s\n", exp);
+  printf("Expression: %s\n", expression);
 
   // parse and evaluate the user's infix expression
-
+  for (int i = 0, len = strlen(expression) - 1; i < len; i++) {
+    
+  }
   
   // free expression and return
-  free(exp);
-  exp = NULL;
+  free(expression);
+  expression = NULL;
   return 0;
 
 }
