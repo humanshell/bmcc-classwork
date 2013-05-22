@@ -1,19 +1,19 @@
 CC = gcc
-DEPS = giglio_proj2_1.h
-CFLAGS = -lncurses -O3 -std=c99 -Wall -Iinc
+DEPS = list.h
+CFLAGS = -lncurses -O3 -std=c99 -Wall
 
 %.o: %.c $(DEPS)
 		$(CC) -c -o $@ $< $(CFLAGS)
 
-giglio_proj2_1: giglio_proj2_1_test.o giglio_proj2_1.o
+list_main: main.o list.o
 		gcc -o $@ $^ $(CFLAGS)
 
-test: test.o giglio_proj2_1.o
+test: test.o list.o
 		gcc -o list_test $^ $(CFLAGS)
 		@./list_test
 
 clean:
-		rm -f *.o giglio_proj2_1 list_test
+		rm -f *.o list_main list_test
 
 .PHONY: clean test
 

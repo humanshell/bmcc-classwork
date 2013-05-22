@@ -1,4 +1,4 @@
-#include "giglio_proj2_1.h"
+#include "list.h"
 
 // create a new node
 node_t *new_node(int val) {
